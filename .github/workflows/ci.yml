@@ -1,0 +1,20 @@
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: bazelbuild/setup-bazelisk@v1
+      - uses: actions/cache@v2
+        with:
+          path: "~/.cache/bazel"
+          key: bazel
+      - run: bazel build //:z3

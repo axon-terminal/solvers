@@ -1,0 +1,11 @@
+load("@rules_foreign_cc//foreign_cc:defs.bzl", "cmake")
+
+cmake(
+    name = "z3",
+    # cache_entries = {
+    #     "CMAKE_C_FLAGS": "-fPIC",
+    # },
+    generate_args = ["-GNinja"],
+    lib_source = "@z3//:all_srcs",
+    out_binaries = ["z3"]
+)
