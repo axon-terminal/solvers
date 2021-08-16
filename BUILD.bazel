@@ -1,11 +1,28 @@
-load("@rules_foreign_cc//foreign_cc:defs.bzl", "cmake")
+load("@rules_foreign_cc//foreign_cc:defs.bzl", "cmake", "make", "configure_make")
 
 cmake(
     name = "z3",
-    # cache_entries = {
-    #     "CMAKE_C_FLAGS": "-fPIC",
-    # },
     generate_args = ["-GNinja"],
     lib_source = "@z3//:all_srcs",
-    out_binaries = ["z3"]
+    out_binaries = ["z3"],
+)
+
+make(
+    name = "abc",
+    args = ["-j"],
+    lib_source = "@abc//:all_srcs",
+    targets = [""],
+    out_binaries = ["abc"],
+    postfix_script = "ls -1; echo; ls -1 WORKSPACE; echo; ls -1 $$INSTALLDIR$$; cp -p WORKSPACE/abc/abc $$INSTALLDIR$$/bin/abc"
+)
+
+configure_make(
+    name = "cvc4",
+    # args = ["-j", "--auto-download"],
+    deps = [":abc"],
+    configure_command = "configure.sh",
+    configure_in_place = True,
+    configure_options = ["production", "--best", "--gpl", "--ninja", "--abc-dir=./abc"],
+    lib_source = "@cvc4//:all_srcs",
+    out_binaries = ["cvc4"],
 )
