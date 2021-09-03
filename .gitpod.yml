@@ -1,6 +1,7 @@
 
 tasks:
   - command: npm install -g @bazel/bazelisk
+  - command: go get github.com/bazelbuild/buildtools/buildifier
 
 vscode:
   extensions:
