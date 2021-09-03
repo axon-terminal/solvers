@@ -53,10 +53,10 @@ http_archive(
 )
 
 http_archive(
-    name = "cvc4",
+    name = "cvc5",
     build_file_content = _ALL_CONTENT,
-    strip_prefix = "cvc5-1.8",
-    url = "https://github.com/cvc5/cvc5/archive/refs/tags/1.8.tar.gz",
+    strip_prefix = "cvc5-master",
+    url = "https://github.com/cvc5/cvc5/archive/refs/heads/master.tar.gz",
     # sha256 = "12cce6392b613d3133909ce7f93985d2470f0d00138837de06cf7eb2992886b4"
 )
 
@@ -65,6 +65,5 @@ http_archive(
     name = "abc",
     build_file_content = _ALL_CONTENT,
     strip_prefix = "abc-master",
-    url = "https://github.com/berkeley-abc/abc/archive/refs/heads/master.tar.gz",
-    sha256 = "1ac3ba780b0586bd0ee3f7d82c9173e28b47a7c0afeedec524bdbef8e5cc1d0e",
+    url = "https://github.com/axon-terminal/abc/archive/refs/heads/master.tar.gz",
 )
