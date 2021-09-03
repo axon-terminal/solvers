@@ -1,0 +1,7 @@
+
+tasks:
+  - command: npm install -g @bazel/bazelisk
+
+vscode:
+  extensions:
+    - bazelbuild.vscode-bazel
