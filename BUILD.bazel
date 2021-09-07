@@ -40,7 +40,7 @@ cd -
     cache_entries = {
         "ENABLE_BEST": "ON",
         "CMAKE_BUILD_TYPE": "Production",
-        "ENABLE_AUTO_DOWNLOAD": "OFF",
+        "ENABLE_AUTO_DOWNLOAD": "ON",
         # "CMAKE_FIND_DEBUG_MODE": "TRUE",
         # "CMAKE_POLICY_DEFAULT_CMP0074": "NEW",
         # "ABC_ROOT": "$EXT_BUILD_DEPS/abc"
