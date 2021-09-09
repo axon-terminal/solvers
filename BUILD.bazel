@@ -1,4 +1,4 @@
-load("@rules_foreign_cc//foreign_cc:defs.bzl", "cmake", "make", "configure_make")
+load("@rules_foreign_cc//foreign_cc:defs.bzl", "cmake")
 
 cmake(
     name = "z3",
@@ -7,31 +7,9 @@ cmake(
     out_binaries = ["z3"],
 )
 
-make(
-    name = "abc",
-    # generate_args = ["-GNinja"],
-    args = ["-j", "ABC_MAKE_VERBOSE=1", "ABC_USE_PIC=1"],
-    lib_source = "@abc//:all_srcs",
-    # targets = ["abc", "libabc"],
-    out_binaries = ["abc"],
-#     postfix_script = """\
-# set -x
-# set +eu
-# ls -alh; echo
-# ls -alh $$INSTALLDIR$$/..; echo
-# ls -alh $$EXT_BUILD_ROOT$$/bazel-out/k8-fastbuild; echo
-# ls -alh $$BUILD_WORKSPACE_DIRECTORY$$; echo
-# exit 1
-# """
-)
-
 cmake(
     name = "cvc5",
-    # args = ["-j", "--auto-download"],
-    # deps = [":abc"],
-    # env = {'CMAKE_PREFIX_PATH': }
-    # configure_command = "configure.sh",
-    # configure_in_place = True,
+    generate_args = ["-GNinja"],
     prefix_script = """\
 cd $$EXT_BUILD_ROOT$$/external/cvc5
 ./contrib/get-abc
@@ -41,12 +19,7 @@ cd -
         "ENABLE_BEST": "ON",
         "CMAKE_BUILD_TYPE": "Production",
         "ENABLE_AUTO_DOWNLOAD": "ON",
-        # "CMAKE_FIND_DEBUG_MODE": "TRUE",
-        # "CMAKE_POLICY_DEFAULT_CMP0074": "NEW",
-        # "ABC_ROOT": "$EXT_BUILD_DEPS/abc"
     },
-    # configure_options = ["production"],
-    # configure_options = ["production", "--best", "--gpl", "--ninja", "--abc-dir=./abc"],
     lib_source = "@cvc5//:all_srcs",
     out_binaries = ["cvc5"],
 )

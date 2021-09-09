@@ -59,11 +59,3 @@ http_archive(
     url = "https://github.com/cvc5/cvc5/archive/refs/heads/master.tar.gz",
     # sha256 = "12cce6392b613d3133909ce7f93985d2470f0d00138837de06cf7eb2992886b4"
 )
-
-
-http_archive(
-    name = "abc",
-    build_file_content = _ALL_CONTENT,
-    strip_prefix = "abc-master",
-    url = "https://github.com/axon-terminal/abc/archive/refs/heads/master.tar.gz",
-)
