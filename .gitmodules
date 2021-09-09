@@ -1,3 +1,9 @@
 [submodule "rules_foreign_cc"]
 	path = rules_foreign_cc
 	url = https://github.com/axon-terminal/rules_foreign_cc.git
+[submodule "bazel"]
+	path = bazel
+	url = https://github.com/bazelbuild/bazel.git
+[submodule "cvc5"]
+	path = cvc5
+	url = https://github.com/cvc5/cvc5.git
