@@ -21,7 +21,7 @@ A [rolling-release](https://en.wikipedia.org/wiki/Rolling_release) distribution 
   - [ ] [DoD DSO Iron Bank](https://repo1.dso.mil/dsop/dccscr)
   - [ ] Hackage
 - Artifacts:
-  - [ ] `Dockerfile`
+  - [ ] `Dockerfile` (unified)
   - [ ] `.tar.gz` (unified)
   - [ ] `.zip` (unified)
   - [ ] `.deb`
